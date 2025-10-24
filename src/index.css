@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Backgrounds */
+    --background: 0 0% 100%;
+    --foreground: 220 15% 20%;
+
+    /* Card & Popover */
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 20%;
+
+    /* Primary Colors - DropEats Blue Gradient Palette */
+    --primary: 215 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 220 70% 35%;
+    --primary-medium: 215 85% 55%;
+    --primary-light: 210 90% 65%;
+    --primary-cyan: 187 85% 53%;
+
+    /* Secondary - Soft Blue-Gray */
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 220 15% 25%;
+
+    /* Muted */
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Accent - Cyan */
+    --accent: 187 85% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 220 15% 92%;
+    --input: 220 15% 94%;
+    --ring: 215 85% 55%;
+
+    /* Radius */
+    --radius: 0.75rem;
+
+    /* DropEats Gradients - Clean & Professional */
+    --gradient-primary: linear-gradient(135deg, hsl(220 70% 35%) 0%, hsl(215 85% 55%) 50%, hsl(187 85% 53%) 100%);
+    --gradient-secondary: linear-gradient(120deg, hsl(215 85% 55%) 0%, hsl(210 90% 65%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(220 90% 98%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(215 90% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(210 90% 65%) 0%, hsl(187 85% 53%) 100%);
+
+    /* Shadows - Refined with blue tones */
+    --shadow-soft: 0 4px 20px -2px hsl(215 85% 55% / 0.08);
+    --shadow-medium: 0 10px 40px -5px hsl(215 85% 55% / 0.15);
+    --shadow-strong: 0 20px 60px -10px hsl(215 85% 55% / 0.25);
+    --shadow-glow: 0 0 40px hsl(187 85% 53% / 0.3);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 0 0% 98%;
+    --card: 220 25% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 220 90% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 210 100% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 220 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
