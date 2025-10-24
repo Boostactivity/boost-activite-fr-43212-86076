@@ -1,0 +1,232 @@
+*** Begin Patch
+*** Update File: src/App.tsx
+@@
+-import { BrowserRouter, Routes, Route } from "react-router-dom";
++import { BrowserRouter, Routes, Route } from "react-router-dom";
++import NavBar from "./components/NavBar";
++import Services from "./pages/Services";
++import About from "./pages/About";
++import Contact from "./pages/Contact";
+@@ const App = () => (
+-      <BrowserRouter>
+-        <Routes>
+-          <Route path="/" element={<Index />} />
+-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+-          <Route path="*" element={<NotFound />} />
+-        </Routes>
+-      </BrowserRouter>
++      <BrowserRouter>
++        <NavBar />
++        <Routes>
++          <Route path="/" element={<Index />} />
++          <Route path="/services" element={<Services />} />
++          <Route path="/about" element={<About />} />
++          <Route path="/contact" element={<Contact />} />
++          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
++          <Route path="*" element={<NotFound />} />
++        </Routes>
++      </BrowserRouter>
+*** End Patch
+*** Update File: src/components/HeroSection.tsx
+@@
+-          {/* Main Heading */}
+-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 animate-fade-in-up leading-tight">
+-            Nous aidons les entreprises et les restaurants à{" "}
+-            <span className="text-gradient">
+-              booster leur visibilité
+-            </span>
+-            , leur performance et leurs ventes
+-          </h1>
++          {/* Main Heading */}
++          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 animate-fade-in-up leading-tight">
++            Activez le{" "}
++            <span className="text-gradient">
++              potentiel dormant
++            </span>{" "}
++            de votre cuisine avec DropEats
++          </h1>
+@@
+-          {/* Subtitle */}
+-          <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto animate-fade-in-up [animation-delay:200ms]">Boost Activity est une agence de marketing digital qui allie stratégie, design et innovation pour accélérer votre croissance.</p>
++          {/* Subtitle */}
++          <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto animate-fade-in-up [animation-delay:200ms]">
++            Boost Activity est l'agence derrière{" "}
++            <span className="font-semibold text-foreground">DropEats</span>, une solution clé en main pour générer des revenus supplémentaires sans effort ni charges fixes en exploitant vos cuisines existantes.
++          </p>
+*** End Patch
+*** Update File: src/components/ContactSection.tsx
+@@
+-  {
+-    icon: Mail,
+-    title: "Email",
+-    value: "contact@boostactivity.fr",
+-    link: "mailto:contact@boostactivity.fr",
+-  },
+-  {
+-    icon: Phone,
+-    title: "Téléphone",
+-    value: "+33 1 23 45 67 89",
+-    link: "tel:+33123456789",
+-  },
++  {
++    icon: Mail,
++    title: "Email",
++    value: "boostactivityfr@gmail.com",
++    link: "mailto:boostactivityfr@gmail.com",
++  },
++  {
++    icon: Phone,
++    title: "Téléphone",
++    value: "+33 6 60 96 85 16",
++    link: "tel:+33660968516",
++  },
+*** End Patch
+*** Add File: src/components/NavBar.tsx
++import { Link } from "react-router-dom";
++
++const NavBar = () => {
++  return (
++    <nav className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 text-white py-4 shadow">
++      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
++        <Link to="/" className="text-2xl font-bold">
++          Boost&nbsp;Activity
++        </Link>
++        <ul className="flex space-x-6 text-sm sm:text-base">
++          <li>
++            <Link to="/" className="hover:underline">
++              Accueil
++            </Link>
++          </li>
++          <li>
++            <Link to="/services" className="hover:underline">
++              Prestations
++            </Link>
++          </li>
++          <li>
++            <Link to="/about" className="hover:underline">
++              À propos
++            </Link>
++          </li>
++          <li>
++            <Link to="/contact" className="hover:underline">
++              Contact
++            </Link>
++          </li>
++        </ul>
++      </div>
++    </nav>
++  );
++};
++
++export default NavBar;
+*** End Patch
+*** Add File: src/pages/Services.tsx
++const Services = () => {
++  return (
++    <main className="min-h-screen pt-20">
++      <section className="py-24 gradient-hero">
++        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
++          <h1 className="text-4xl sm:text-5xl font-bold text-center text-foreground mb-10">
++            Nos prestations
++          </h1>
++          <p className="text-center text-lg text-muted-foreground max-w-3xl mx-auto mb-16">
++            Découvrez l'ensemble de nos services pour développer votre activité et générer de nouveaux revenus.
++          </p>
++          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
++            <div className="p-8 rounded-xl bg-background shadow-soft">
++              <h2 className="text-xl font-semibold mb-3">Stratégie marketing &amp; publicité</h2>
++              <p>
++                Campagnes performantes sur Google Ads, Meta Ads, TikTok, Snapchat et YouTube. Email marketing, retargeting et analytics pour maximiser votre ROI.
++              </p>
++            </div>
++            <div className="p-8 rounded-xl bg-background shadow-soft">
++              <h2 className="text-xl font-semibold mb-3">Gestion des réseaux sociaux</h2>
++              <p>
++                Création de contenu engageant, storytelling de marque et community management pour développer votre présence en ligne.
++              </p>
++            </div>
++            <div className="p-8 rounded-xl bg-background shadow-soft">
++              <h2 className="text-xl font-semibold mb-3">Création de sites &amp; tunnels de vente</h2>
++              <p>
++                Sites vitrine, e-commerce et tunnels de vente optimisés pour la conversion. Intégration SEO, CRM et systèmes de paiement.
++              </p>
++            </div>
++            <div className="p-8 rounded-xl bg-background shadow-soft">
++              <h2 className="text-xl font-semibold mb-3">Formations &amp; coaching</h2>
++              <p>
++                Formations personnalisées en marketing digital et accompagnement des entrepreneurs pour développer leurs compétences.
++              </p>
++            </div>
++            <div className="p-8 rounded-xl bg-background shadow-soft">
++              <h2 className="text-xl font-semibold mb-3">Programme DropEats</h2>
++              <p>
++                Notre service exclusif pour les restaurants : générez jusqu’à 2 500 € nets par mois supplémentaires sans investir dans du matériel ni embaucher du personnel. Nous gérons tout pour vous.
++              </p>
++            </div>
++          </div>
++        </div>
++      </section>
++    </main>
++  );
++};
++
++export default Services;
+*** End Patch
+*** Add File: src/pages/About.tsx
++const About = () => {
++  return (
++    <main className="min-h-screen pt-20">
++      <section className="py-24 bg-background">
++        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
++          <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8">
++            À propos de Boost Activity
++          </h1>
++          <p className="max-w-4xl mx-auto text-lg text-muted-foreground mb-8">
++            <strong className="text-foreground">Boost Activity</strong> est l’agence derrière <strong className="text-foreground">DropEats</strong>, une solution innovante
++            qui active le potentiel dormant des cuisines pour générer des revenus supplémentaires sans effort.
++            Fondée par des experts du digital et de la restauration, notre mission est de rendre le marketing
++            digital accessible à tous les entrepreneurs et de leur offrir un flux de commandes supplémentaires grâce à notre réseau de dark kitchens.
++          </p>
++          <p className="max-w-4xl mx-auto text-lg text-muted-foreground mb-4">
++            Nous combinons stratégie, design et technologie pour aider les restaurants et entreprises à se
++            développer en ligne. Nos valeurs reposent sur l’innovation, la performance et la croissance partagée.
++            En tant qu’organisme de formation certifié Qualiopi, nous vous accompagnons aussi dans votre montée en compétences.
++          </p>
++        </div>
++      </section>
++    </main>
++  );
++};
++
++export default About;
+*** End Patch
+*** Add File: src/pages/Contact.tsx
++import { Mail, Phone } from "lucide-react";
++
++const Contact = () => {
++  return (
++    <main className="min-h-screen pt-20">
++      <section className="py-24 gradient-hero">
++        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
++          <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8">
++            Contactez-nous
++          </h1>
++          <p className="text-lg text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
++            Vous souhaitez en savoir plus sur nos prestations ou rejoindre le programme DropEats ? Contactez-nous et nous reviendrons vers vous rapidement.
++          </p>
++          <div className="flex flex-col items-center space-y-6">
++            <a href="tel:+33660968516" className="flex items-center gap-3 text-lg font-medium text-primary hover:underline">
++              <Phone className="w-5 h-5" /> +33 6 60 96 85 16
++            </a>
++            <a href="mailto:boostactivityfr@gmail.com" className="flex items-center gap-3 text-lg font-medium text-primary hover:underline">
++              <Mail className="w-5 h-5" /> boostactivityfr@gmail.com
++            </a>
++          </div>
++        </div>
++      </section>
++    </main>
++  );
++};
++
++export default Contact;
+*** End Patch
